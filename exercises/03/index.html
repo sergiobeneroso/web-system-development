@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Tracker</title>
+  </head>
+  <body>
+    <h1>Budget Tracker</h1>
+
+    <input type="text" name="expense-name" placeholder="Nombre del gasto" />
+    <input type="number" name="expense-amount" placeholder="Cantidad" />
+    <button type="button" id="add-expense">Añadir gasto</button>
+
+    <p id="error"></p>
+
+    <ul id="expense-list"></ul>
+
+    <p>Total: <span id="total">0.00</span> €</p>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
