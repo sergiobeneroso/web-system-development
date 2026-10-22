@@ -19,3 +19,24 @@ const render = () => {
   const total = expenses.reduce((sum, expense) => sum + expense.amount, 0)
   totalElement.textContent = total.toFixed(2)
 }
+addButton.addEventListener('click', () => {
+  const name = nameInput.value.trim()
+  const amount = Number(amountInput.value)
+
+  if (name === '') {
+    errorElement.textContent = 'El nombre no puede estar vacío'
+    return
+  }
+
+  if (isNaN(amount) || amount <= 0) {
+    errorElement.textContent = 'La cantidad debe ser un número positivo'
+    return
+  }
+
+  errorElement.textContent = ''
+  expenses = expenses.concat({ name, amount })
+  render()
+
+  nameInput.value = ''
+  amountInput.value = ''
+})
