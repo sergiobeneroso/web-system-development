@@ -9,7 +9,7 @@ const ProductDetail = () => {
 
   const product = products.find((p) => p.id === id);
 
-  // Si el id no existe, mostramos un aviso
+  
   if (!product) {
     return (
       <div data-testid="product-not-found">
