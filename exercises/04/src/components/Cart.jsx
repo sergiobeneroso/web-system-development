@@ -5,7 +5,7 @@ const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity, clearCart } = useContext(CartContext);
 
   const [customerName, setCustomerName] = useState('');
-  const [orderName, setOrderName] = useState(''); // nombre del pedido ya realizado
+  const [orderName, setOrderName] = useState('');
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -16,7 +16,7 @@ const Cart = () => {
   const handleCheckout = (event) => {
     event.preventDefault();
 
-    // Un nombre vacío no realiza el pedido
+  
     if (customerName.trim() === '') {
       return;
     }
