@@ -1,6 +1,5 @@
 import { useState, createContext } from 'react';
 
-// 1. Creamos el contexto con su valor por defecto
 export const CartContext = createContext({
   cartItems: [],
   addToCart: () => {},
@@ -9,7 +8,6 @@ export const CartContext = createContext({
   clearCart: () => {},
 });
 
-// 2. Componente que guarda el estado del carrito y lo "provee" a sus hijos
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
@@ -17,14 +15,14 @@ export const CartProvider = ({ children }) => {
     const itemInCart = cartItems.find((item) => item.id === product.id);
 
     if (itemInCart) {
-      // Ya estaba: creamos un array nuevo con su cantidad +1 (sin mutar el estado)
+    
       setCartItems(
         cartItems.map((item) =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         )
       );
     } else {
-      // No estaba: lo añadimos con concat y cantidad 1
+      
       setCartItems(cartItems.concat({ ...product, quantity: 1 }));
     }
   };
@@ -35,7 +33,7 @@ export const CartProvider = ({ children }) => {
 
   const updateQuantity = (id, quantity) => {
     if (quantity <= 0) {
-      // Si la cantidad llega a 0, la fila desaparece
+      
       removeFromCart(id);
     } else {
       setCartItems(
