@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:3000/books
+###
+GET {{baseUrl}}
+
+###
+GET {{baseUrl}}/1
+
+###
+GET {{baseUrl}}/999
+
+###
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "title": "El nombre del viento",
+  "author": "Patrick Rothfuss"
+}
+
+###
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "title": "Libro sin autor"
+}
+
+###
+DELETE {{baseUrl}}/2
+
+###
+DELETE {{baseUrl}}/999
+
+###
+GET http://localhost:3000/unknown
